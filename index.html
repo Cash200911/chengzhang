@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python爬虫学习路线图</title>
+    <style>
+        body {
+            font-family: 'Microsoft YaHei', Arial, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.2em;
+        }
+        .subtitle {
+            text-align: center;
+            color: #7f8c8d;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+        .phase {
+            margin: 25px 0;
+            border-left: 4px solid #3498db;
+            padding-left: 20px;
+            position: relative;
+        }
+        .phase.completed {
+            border-left-color: #27ae60;
+            opacity: 0.8;
+        }
+        .phase-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .phase-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+        .phase-duration {
+            background: #3498db;
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.9em;
+        }
+        .phase.completed .phase-duration {
+            background: #27ae60;
+        }
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        .skill {
+            background: #ecf0f1;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 0.9em;
+            color: #2c3e50;
+        }
+        .resources {
+            margin: 15px 0;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .resources h4 {
+            margin: 0 0 10px 0;
+            color: #2c3e50;
+        }
+        .resource-list {
+            list-style: none;
+            padding: 0;
+        }
+        .resource-list li {
+            padding: 5px 0;
+            border-bottom: 1px solid #ecf0f1;
+        }
+        .resource-list li:last-child {
+            border-bottom: none;
+        }
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: #ecf0f1;
+            border-radius: 4px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #3498db, #2ecc71);
+            transition: width 0.3s ease;
+        }
+        .checkbox {
+            margin-right: 8px;
+            transform: scale(1.2);
+        }
+        .tips {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .tips h3 {
+            margin: 0 0 10px 0;
+            color: #856404;
+        }
+        .daily-plan {
+            background: #e8f5e8;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        .btn {
+            background: #3498db;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #2980b9;
+        }
+        .btn.completed {
+            background: #27ae60;
+        }
+        @media (max-width: 768px) {
+            .phase-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .phase-duration {
+                margin-top: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐍 Python爬虫学习路线图</h1>
+        <p class="subtitle">零基础 → 爬虫工程师 | 每天1小时 | 7个月计划（含英文基础）</p>
+        
+        <div class="progress-bar">
+            <div class="progress-fill" id="overallProgress" style="width: 0%"></div>
+        </div>
+        <p style="text-align: center; color: #7f8c8d;">总体进度: <span id="progressText">0%</span></p>
+
+        <div class="daily-plan">
+            <h3>📅 每日学习建议</h3>
+            <p><strong>40分钟</strong> 理论学习 + <strong>20分钟</strong> 实践练习</p>
+            <p>建议时间：晚上7-8点（固定时间更容易坚持）</p>
+        </div>
+
+        <div class="phase" id="phase0">
+            <div class="phase-header">
+                <div class="phase-title">阶段0：编程英语预备</div>
+                <div class="phase-duration">2-3周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">26个字母</span>
+                <span class="skill">编程关键词</span>
+                <span class="skill">常用函数名</span>
+                <span class="skill">错误信息理解</span>
+                <span class="skill">代码阅读</span>
+            </div>
+            <div class="resources">
+                <h4>📚 推荐资源</h4>
+                <ul class="resource-list">
+                    <li>📱 <strong>手机APP</strong>：百词斩、扇贝单词（学编程单词）</li>
+                    <li>🎥 <strong>B站视频</strong>：搜索"编程英语入门"</li>
+                    <li>📖 <strong>在线工具</strong>：有道翻译、百度翻译</li>
+                    <li>📝 <strong>单词卡片</strong>：制作编程常用词汇卡片</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(0)">标记完成</button>
+        </div>
+
+        <div class="phase" id="phase1">
+            <div class="phase-header">
+                <div class="phase-title">阶段1：Python基础入门</div>
+                <div class="phase-duration">4-6周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">变量和数据类型</span>
+                <span class="skill">条件语句</span>
+                <span class="skill">循环语句</span>
+                <span class="skill">函数定义</span>
+                <span class="skill">列表和字典</span>
+            </div>
+            <div class="resources">
+                <h4>📚 推荐资源</h4>
+                <ul class="resource-list">
+                    <li>🎥 <strong>B站-Python教程</strong>：搜索"Python零基础入门"</li>
+                    <li>📖 <strong>菜鸟教程</strong>：www.runoob.com/python3/</li>
+                    <li>💻 <strong>在线编程</strong>：www.python123.io</li>
+                    <li>📱 <strong>手机APP</strong>：编程猫、慕课网</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(1)">标记完成</button>
+        </div>
+
+        <div class="phase" id="phase2">
+            <div class="phase-header">
+                <div class="phase-title">阶段2：网络基础知识</div>
+                <div class="phase-duration">2-3周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">HTTP协议</span>
+                <span class="skill">HTML基础</span>
+                <span class="skill">CSS选择器</span>
+                <span class="skill">浏览器开发者工具</span>
+                <span class="skill">网页结构分析</span>
+            </div>
+            <div class="resources">
+                <h4>📚 推荐资源</h4>
+                <ul class="resource-list">
+                    <li>🎥 <strong>B站-HTML/CSS教程</strong></li>
+                    <li>🛠️ <strong>实战</strong>：用Chrome开发者工具分析网页</li>
+                    <li>📖 <strong>MDN文档</strong>：了解HTTP状态码</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(2)">标记完成</button>
+        </div>
+
+        <div class="phase" id="phase3">
+            <div class="phase-header">
+                <div class="phase-title">阶段3：爬虫核心技术</div>
+                <div class="phase-duration">6-8周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">requests库</span>
+                <span class="skill">BeautifulSoup解析</span>
+                <span class="skill">正则表达式</span>
+                <span class="skill">数据存储</span>
+                <span class="skill">异常处理</span>
+            </div>
+            <div class="resources">
+                <h4>📚 推荐资源</h4>
+                <ul class="resource-list">
+                    <li>📖 <strong>官方文档</strong>：requests.readthedocs.io</li>
+                    <li>🎥 <strong>B站-爬虫实战</strong>：搜索"Python爬虫教程"</li>
+                    <li>💻 <strong>练习网站</strong>：httpbin.org（测试HTTP请求）</li>
+                    <li>📚 <strong>书籍</strong>：《Python网络爬虫权威指南》</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(3)">标记完成</button>
+        </div>
+
+        <div class="phase" id="phase4">
+            <div class="phase-header">
+                <div class="phase-title">阶段4：高级爬虫技术</div>
+                <div class="phase-duration">4-6周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">Selenium自动化</span>
+                <span class="skill">反爬虫对策</span>
+                <span class="skill">代理IP</span>
+                <span class="skill">多线程爬虫</span>
+                <span class="skill">数据清洗</span>
+            </div>
+            <div class="resources">
+                <h4>📚 推荐资源</h4>
+                <ul class="resource-list">
+                    <li>🎥 <strong>Selenium教程</strong>：B站搜索"Selenium Python"</li>
+                    <li>💻 <strong>实战项目</strong>：爬取淘宝、豆瓣等网站</li>
+                    <li>🛠️ <strong>工具</strong>：Postman测试API</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(4)">标记完成</button>
+        </div>
+
+        <div class="phase" id="phase5">
+            <div class="phase-header">
+                <div class="phase-title">阶段5：项目实战</div>
+                <div class="phase-duration">4-6周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">完整项目开发</span>
+                <span class="skill">数据分析</span>
+                <span class="skill">可视化</span>
+                <span class="skill">Git版本控制</span>
+                <span class="skill">项目部署</span>
+            </div>
+            <div class="resources">
+                <h4>📚 推荐项目</h4>
+                <ul class="resource-list">
+                    <li>🏠 <strong>房价数据爬虫</strong>：链家、贝壳找房</li>
+                    <li>📰 <strong>新闻爬虫</strong>：新浪、网易新闻</li>
+                    <li>🛒 <strong>电商数据</strong>：京东、天猫商品信息</li>
+                    <li>📈 <strong>股票数据</strong>：东方财富、雪球</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(5)">标记完成</button>
+        </div>
+
+        <div class="phase" id="phase6">
+            <div class="phase-header">
+                <div class="phase-title">阶段6：求职准备</div>
+                <div class="phase-duration">2-3周</div>
+            </div>
+            <div class="skills">
+                <span class="skill">简历制作</span>
+                <span class="skill">面试准备</span>
+                <span class="skill">技术总结</span>
+                <span class="skill">作品集整理</span>
+                <span class="skill">面试技巧</span>
+            </div>
+            <div class="resources">
+                <h4>📚 求职资源</h4>
+                <ul class="resource-list">
+                    <li>💼 <strong>招聘网站</strong>：BOSS直聘、拉勾网、智联招聘</li>
+                    <li>📝 <strong>简历模板</strong>：超级简历、五百丁</li>
+                    <li>🎯 <strong>面试题库</strong>：牛客网、力扣</li>
+                    <li>📱 <strong>技术社区</strong>：CSDN、博客园</li>
+                </ul>
+            </div>
+            <button class="btn" onclick="togglePhase(6)">标记完成</button>
+        </div>
+
+        <div class="tips" style="background: #ffe6e6; border-color: #ff6b6b;">
+            <h3>🚨 英文零基础特别提醒</h3>
+            <ul>
+                <li><strong>不要害怕英文</strong>：编程用的英文很简单，就那100-200个单词</li>
+                <li><strong>准备翻译工具</strong>：手机装有道翻译，电脑开着百度翻译</li>
+                <li><strong>制作单词本</strong>：把遇到的编程词汇记下来，反复看</li>
+                <li><strong>从中文教程开始</strong>：先看中文视频，再看英文文档</li>
+                <li><strong>错误信息不要怕</strong>：复制错误信息到百度搜索中文解答</li>
+            </ul>
+        </div>
+
+        <div class="tips" style="background: #fff0e6; border-color: #ffa726;">
+            <h3>📝 必背编程单词（前50个）</h3>
+            <div style="columns: 2; column-gap: 20px;">
+                <p><strong>基础词汇：</strong><br>
+                print 打印、input 输入、if 如果、else 否则、for 循环、while 当、def 定义、return 返回、import 导入、from 从</p>
+                <p><strong>数据类型：</strong><br>
+                int 整数、str 字符串、list 列表、dict 字典、len 长度、range 范围、True 真、False 假、None 空</p>
+                <p><strong>爬虫词汇：</strong><br>
+                request 请求、response 响应、url 网址、data 数据、text 文本、html 网页、get 获取、post 发送</p>
+            </div>
+        </div>
+
+        <div class="tips">
+            <h3>💡 学习建议</h3>
+            <ul>
+                <li><strong>坚持每天学习</strong>：1小时很短，但坚持7个月就能看到效果</li>
+                <li><strong>多动手实践</strong>：看视频的同时一定要跟着敲代码</li>
+                <li><strong>遇到问题不要慌</strong>：百度、CSDN、知乎都是好帮手</li>
+                <li><strong>建立学习笔记</strong>：用有道云笔记或者语雀记录重点</li>
+                <li><strong>加入学习群</strong>：找一些Python学习QQ群或微信群</li>
+            </ul>
+        </div>
+
+        <div class="tips" style="background: #f0f9ff; border-color: #3498db;">
+            <h3>🎯 就业前景</h3>
+            <p><strong>爬虫工程师</strong>月薪：8K-15K（初级）、15K-25K（中级）</p>
+            <p><strong>数据分析师</strong>月薪：10K-20K</p>
+            <p><strong>Python开发工程师</strong>月薪：12K-25K</p>
+            <p>学会爬虫后，可以继续学习数据分析、Web开发等方向！</p>
+        </div>
+    </div>
+
+    <script>
+        let completedPhases = JSON.parse(localStorage.getItem('completedPhases') || '[]');
+        
+        function updateProgress() {
+            const totalPhases = 7;
+            const completed = completedPhases.length;
+            const percentage = Math.round((completed / totalPhases) * 100);
+            
+            document.getElementById('overallProgress').style.width = percentage + '%';
+            document.getElementById('progressText').textContent = percentage + '%';
+            
+            // 更新阶段状态
+            for (let i = 0; i <= 6; i++) {
+                const phase = document.getElementById(`phase${i}`);
+                const btn = phase.querySelector('.btn');
+                
+                if (completedPhases.includes(i)) {
+                    phase.classList.add('completed');
+                    btn.textContent = '已完成 ✓';
+                    btn.classList.add('completed');
+                } else {
+                    phase.classList.remove('completed');
+                    btn.textContent = '标记完成';
+                    btn.classList.remove('completed');
+                }
+            }
+        }
+        
+        function togglePhase(phaseNum) {
+            const index = completedPhases.indexOf(phaseNum);
+            if (index > -1) {
+                completedPhases.splice(index, 1);
+            } else {
+                completedPhases.push(phaseNum);
+            }
+            
+            localStorage.setItem('completedPhases', JSON.stringify(completedPhases));
+            updateProgress();
+        }
+        
+        // 初始化
+        updateProgress();
+        
+        // 添加励志语句
+        const encouragements = [
+            "每天进步一点点！",
+            "坚持就是胜利！",
+            "代码改变世界！",
+            "今天的努力是明天的实力！",
+            "学习使人进步！"
+        ];
+        
+        setInterval(() => {
+            const randomIndex = Math.floor(Math.random() * encouragements.length);
+            console.log(encouragements[randomIndex]);
+        }, 30000);
+    </script>
+</body>
+</html>
